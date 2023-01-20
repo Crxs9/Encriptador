@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Encriptador de Texto</title>
+        <link rel ="stylesheet" href="reset.css">
+        <link rel ="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <div class = "boxencabezado">
+            <h1><img src = "Vector.png" id="alura"></h1>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <input id="textin" required placeholder="Ingrese el texto aquí"></input>
+            </section>
+            <section>
+                
+            </section>
+            
+                
+                <button type = "button" id="encriptar" onclick="encriptandomensaje()">Encriptar</button>
+                <button type = "button" id="desencriptar" onclick="desencriptandomensaje()">Desencriptar</button>
+            
+           
+                <textarea cols="70" rows="10" id="mensaje" class="input-padron" required>El mensaje aparecerá aquí.
+                </textarea>
+            
+            
+            
+            
+        </main>
+    </body>
+
+</html>
+
+
+
+
+<script>
+    function encriptandomensaje(){
+
+        let msg = document.querySelector("input");
+        let cad = msg.value.split("");   //mensaje en forma de arreglo
+        let msge = []; //arreglo vacio
+        //let msges = ""
+        let msges = msg.value.replace(/\e/g,"enter")
+                             .replace(/\a/g,"ai")
+                             .replace(/\i/g,"imes")
+                             .replace(/\o/g,"ober")
+                             .replace(/\u/g,"ufat")
+
+        /*
+        for(let i=0;i<cad.length;i++){
+            //console.log(cad[i]) //imprime letra original
+            msge.push(encripta(cad[i])) //verifica si es un caracter encriptable y regresa el valor encriptado, si no, regresa el valor original mandado
+            //console.log(msge)
+            msges+=encripta(cad[i]);
+        }   
+        */
+        document.getElementById("mensaje").value = msges;
+    }
+    /*
+    function encripta(msg){
+        console.log("la letra actual es:"+msg)
+        switch(msg){ 
+            case "a":
+                return "ai";
+            break;
+            case "e":
+                return "enter"
+            break;
+            case "i": 
+                return "imes"
+            break;
+            case "o":
+                return "ober"
+            break;
+            case "u": 
+                return "ufat"
+            break;
+        }
+        return msg;
+    }
+    */
+    function desencriptandomensaje(){
+        let sr = document.querySelector("input");
+        let sf = sr.value.replace(/\enter/g,"e")
+                         .replace(/\imes/g,"i")
+                         .replace(/\ai/g,"a")
+                         .replace(/\ober/g,"o")
+                         .replace(/\ufat/g,"u")
+            
+        document.getElementById("mensaje").value = sf
+    }
+
+
+
+</script>
