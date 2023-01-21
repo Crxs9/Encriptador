@@ -5,7 +5,6 @@
     <head>
         <meta charset="utf-8">
         <title>Encriptador de Texto</title>
-        <link rel ="stylesheet" href="reset.css">
         <link rel ="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     </head>
@@ -19,23 +18,22 @@
 
         <main>
             <section>
-                <input id="textin" required placeholder="Ingrese el texto aquí"></input>
+                <textarea id="textin" cols="30" rows="10" required placeholder="Ingrese el texto aquí"></textarea>
+                <div><h6 class="informacion"><img src ="adv.png" id="advertencia" >Sólo letras minusculas y sin acento.</h6></div>
+                <div class="botones">
+                    <button type = "button" id="encriptar" onclick="encriptandomensaje()">Encriptar</button>
+                    <button type = "button" id="desencriptar" onclick="desencriptandomensaje()">Desencriptar</button>
+                </div>
             </section>
+
+
             <section>
-                
-            </section>
-            
-                
-                <button type = "button" id="encriptar" onclick="encriptandomensaje()">Encriptar</button>
-                <button type = "button" id="desencriptar" onclick="desencriptandomensaje()">Desencriptar</button>
-            
-           
-                <textarea cols="70" rows="10" id="mensaje" class="input-padron" required>El mensaje es este de aquí.
+                <textarea cols="20" rows="10" id="mensaje" class="input-padron" required>El mensaje es este de aquí.
                 </textarea>
-            
-            
-            
-            
+                <div>
+                    <button type="button" id="copiar">Copiar</button>
+                </div>
+            </section>
         </main>
     </body>
 
@@ -47,7 +45,7 @@
 <script>
     function encriptandomensaje(){
 
-        let msg = document.querySelector("input");
+        let msg = document.getElementById("textin");
         let cad = msg.value.split("");   //mensaje en forma de arreglo
         let msge = []; //arreglo vacio
         //let msges = ""
@@ -56,7 +54,8 @@
                              .replace(/\i/g,"imes")
                              .replace(/\o/g,"ober")
                              .replace(/\u/g,"ufat")
-
+        
+        document.getElementById("mensaje").style.backgroundImage = "none";
         /*
         for(let i=0;i<cad.length;i++){
             //console.log(cad[i]) //imprime letra original
@@ -91,7 +90,8 @@
     }
     */
     function desencriptandomensaje(){
-        let sr = document.querySelector("input");
+        document.getElementById("mensaje").style.backgroundImage = "none";
+        let sr = document.getElementById("textin");
         let sf = sr.value.replace(/\enter/g,"e")
                          .replace(/\imes/g,"i")
                          .replace(/\ai/g,"a")
