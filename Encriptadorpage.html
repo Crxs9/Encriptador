@@ -7,14 +7,15 @@
         <title>Encriptador de Texto</title>
         <link rel ="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
-        <header>
-            <div class = "boxencabezado">
+        
+            
+        <div class = "boxencabezado">
             <h1><img src = "Vector.png" id="alura"></h1>
-            </div>
-        </header>
+        </div>
 
         <main>
             <section>
@@ -26,12 +27,13 @@
                 </div>
             </section>
 
-
             <section>
-                <textarea cols="20" rows="10" id="mensaje" class="input-padron" required>El mensaje es este de aquí.
+                <textarea cols="20" rows="10" id="mensaje" required>
                 </textarea>
-                <div>
-                    <button type="button" id="copiar">Copiar</button>
+                <div class="mensajes">
+                    <p id="uno" class="one">Ningún mensaje fue encontrado</p>
+                    <p id="dos" class="two">Ingrese el texto que desea encriptar/desencriptar</p>
+                    <button type="button" id="copiar" onclick="copiartexto()">Copiar</button>
                 </div>
             </section>
         </main>
@@ -43,8 +45,9 @@
 
 
 <script>
-    function encriptandomensaje(){
 
+    function encriptandomensaje(){
+        limpieza();
         let msg = document.getElementById("textin");
         let cad = msg.value.split("");   //mensaje en forma de arreglo
         let msge = []; //arreglo vacio
@@ -55,52 +58,32 @@
                              .replace(/\o/g,"ober")
                              .replace(/\u/g,"ufat")
         
-        document.getElementById("mensaje").style.backgroundImage = "none";
-        /*
-        for(let i=0;i<cad.length;i++){
-            //console.log(cad[i]) //imprime letra original
-            msge.push(encripta(cad[i])) //verifica si es un caracter encriptable y regresa el valor encriptado, si no, regresa el valor original mandado
-            //console.log(msge)
-            msges+=encripta(cad[i]);
-        }   
-        */
         document.getElementById("mensaje").value = msges;
     }
-    /*
-    function encripta(msg){
-        console.log("la letra actual es:"+msg)
-        switch(msg){ 
-            case "a":
-                return "ai";
-            break;
-            case "e":
-                return "enter"
-            break;
-            case "i": 
-                return "imes"
-            break;
-            case "o":
-                return "ober"
-            break;
-            case "u": 
-                return "ufat"
-            break;
-        }
-        return msg;
-    }
-    */
+   
     function desencriptandomensaje(){
-        document.getElementById("mensaje").style.backgroundImage = "none";
+        limpieza();
         let sr = document.getElementById("textin");
         let sf = sr.value.replace(/\enter/g,"e")
                          .replace(/\imes/g,"i")
                          .replace(/\ai/g,"a")
                          .replace(/\ober/g,"o")
                          .replace(/\ufat/g,"u")
-            
-        document.getElementById("mensaje").value = sf
+        
+        document.getElementById("mensaje").value = sf;
+        
     }
 
+    function copiartexto(){
+        var x = document.getElementById("mensaje");
+        x.select();
+        document.execCommand("copy")
+    }
 
+    function limpieza(){
+        document.getElementById("mensaje").style.backgroundImage = "none";
+        document.getElementById("uno").style.display = "none";
+        document.getElementById("dos").style.display = "none";
+    }
 
 </script>

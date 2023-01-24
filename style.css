@@ -1,6 +1,6 @@
 *{
     background-color: #F3F5FC;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 32px;
     line-height: 150%;
@@ -8,41 +8,45 @@
 
 header{
     background-color: #F3F5FC;
+    margin: 0 auto
 }
 
 #alura{
-    padding-top: 10px;
-    margin-left: 10px;
-    width: 2%;
+    padding: 1rem;
+    margin: auto;
+    width: 1rem;
+    max-width: 500px;
+    align-items: center;
 }
 
 main{
+    
+    margin: 0.1rem auto;
+    width:60vw;
+    min-width:300px;
     display: flex;
-    margin-bottom: 50px;
-    margin-left: 80px;
-}
-
-
-body{
-    background-color: #F3F5FC;
-    font-family: 'Inter', sans-serif;
+    flex-direction: row;
+    gap: 10px;
+    
 }
 
 #textin{
-    margin-top: 90px;
+    margin: 2.5rem 2.5rem;
     text-transform: lowercase;
     border: none;
     background-color: #F3F5FC;
     color: #0A3871;
 
 }
+
 #textin:focus{
     outline: none;
 }
 
 .botones{
     display: flex;
-    margin-top: 18px;
+    gap: 0.5rem;
+    margin: 0 2.5rem;
 }
 
 #encriptar{
@@ -53,7 +57,7 @@ body{
     border: 1px solid #0A3871;
     color: white;
     cursor: pointer;
-    margin-right: 10px;
+    
 }
 
 
@@ -65,32 +69,60 @@ body{
     color: #0A3871;
     border: 1px solid #0A3871;
     cursor: pointer;
-    margin-left: 10px;
 }
+
 
 
 #mensaje{
     background-color: white;
     background-image: url("Muñeco.png");
-    background-position: center;
+    background-position: center 20%;
     background-repeat: no-repeat;
     border-radius: 32px;
-    padding-left: 20px;
+    padding: 0.5rem 1rem;
     color: #0A3871;
     border: none;
-    margin-left: 98px;
-    margin-top: 20px;
+    margin: 0 auto;
     position: fixed;
-
     width: 400px;
-    height: 720px;
+    height: 760px;
+    z-index: 0;
     
 }
 #mensaje:focus{
     outline: none;
 }
 
+
+
 ::placeholder{color: #0A3871;}
+
+.mensajes{
+    display: flex;
+    flex-direction: column;
+    justify-content:last baseline
+}
+
+.one,.two{
+    z-index: 1;
+    background-color: white;
+    color: #343A40;
+    text-align: center;
+    Width: 300px;
+    margin-left: 30%;
+}
+
+.one{
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 13rem
+}
+
+.two{
+    font-size: 16px;
+    margin-top: 0;
+}
+
 
 #copiar{
     border: 1px solid #0A3871;
@@ -98,15 +130,16 @@ body{
     color: #0A3871;
     cursor: pointer;
     height: 67px;
-    margin-left: 140px;
-    margin-top: 655px;
-    position: absolute;
+    margin-top: 20rem;
+    position: fixed;
     width: 336px;
+    margin-left: 2rem;
 }
 
 .informacion{
     font-size: 12px;
     color: #495057;
+    margin: 0.3rem 2.5rem;
 }
 
 #advertencia{
