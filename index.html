@@ -44,31 +44,48 @@
 
 
 <script>
-
+    
     function encriptandomensaje(){
-        limpieza();
         let msg = document.getElementById("textin");
-        let msge = []; //arreglo vacio
-        //let msges = ""
-        let msges = msg.value.replace(/\e/g,"enter")
-                             .replace(/\a/g,"ai")
-                             .replace(/\i/g,"imes")
-                             .replace(/\o/g,"ober")
-                             .replace(/\u/g,"ufat")
         
-        document.getElementById("mensaje").value = msges;
+        let filtro = /^[a-z!?¡¿\s]*$/g
+        if(msg.value===""){
+            alert("El mensaje no puede estar vacio");
+        }else if(filtro.test(msg.value)){
+            limpieza();
+            let msges = msg.value.replace(/\e/g,"enter")
+                                .replace(/\a/g,"ai")
+                                .replace(/\i/g,"imes")
+                                .replace(/\o/g,"ober")
+                                .replace(/\u/g,"ufat")
+            
+            document.getElementById("mensaje").value = msges;
+        }else{
+            alert("Sólo se permiten letras minúsculas sin puntuación y/o caracteres especiales")
+        }
+    
     }
    
     function desencriptandomensaje(){
-        limpieza();
         let sr = document.getElementById("textin");
-        let sf = sr.value.replace(/\enter/g,"e")
-                         .replace(/\imes/g,"i")
-                         .replace(/\ai/g,"a")
-                         .replace(/\ober/g,"o")
-                         .replace(/\ufat/g,"u")
+        let filtro = /^[a-z!?¡¿\s]*$/g
+
+        if(sr.value===""){
+            alert("El mensaje no puede estar vacio")
+        }else if(filtro.test(sr.value)){
+            limpieza();
         
-        document.getElementById("mensaje").value = sf;
+            let sf = sr.value.replace(/\enter/g,"e")
+                            .replace(/\imes/g,"i")
+                            .replace(/\ai/g,"a")
+                            .replace(/\ober/g,"o")
+                            .replace(/\ufat/g,"u")
+        
+            document.getElementById("mensaje").value = sf;
+        } else{
+            alert("Sólo se permiten letras minúsculas sin puntuación y/o caracteres especiales")
+        }
+        
         
     }
 
@@ -85,5 +102,7 @@
         document.getElementById("copiar").style.display = "block";
 
     }
+
+    
 
 </script>
