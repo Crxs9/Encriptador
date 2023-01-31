@@ -11,10 +11,8 @@
     </head>
 
     <body>
-        
-            
         <div class = "boxencabezado">
-            <h1><img src = "Vector.png" id="alura"></h1>
+            <img src = "Vector.png" id="alura">
         </div>
 
         <main>
@@ -28,9 +26,10 @@
             </section>
 
             <section>
-                <textarea cols="20" rows="10" id="mensaje" required>
-                </textarea>
+                
                 <div class="mensajes">
+                    <textarea cols="30" rows="10" id="mensaje" required>
+                    </textarea>
                     <p id="uno" class="one">Ningún mensaje fue encontrado</p>
                     <p id="dos" class="two">Ingrese el texto que desea encriptar/desencriptar</p>
                     <button type="button" id="copiar" onclick="copiartexto()">Copiar</button>
@@ -49,7 +48,6 @@
     function encriptandomensaje(){
         limpieza();
         let msg = document.getElementById("textin");
-        let cad = msg.value.split("");   //mensaje en forma de arreglo
         let msge = []; //arreglo vacio
         //let msges = ""
         let msges = msg.value.replace(/\e/g,"enter")
@@ -84,6 +82,8 @@
         document.getElementById("mensaje").style.backgroundImage = "none";
         document.getElementById("uno").style.display = "none";
         document.getElementById("dos").style.display = "none";
+        document.getElementById("copiar").style.display = "block";
+
     }
 
 </script>
