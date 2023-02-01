@@ -7,6 +7,8 @@
         <title>Encriptador de Texto</title>
         <link rel ="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
@@ -30,8 +32,7 @@
                 <div class="mensajes">
                     <textarea cols="30" rows="10" id="mensaje" required>
                     </textarea>
-                    <p id="uno" class="one">Ningún mensaje fue encontrado</p>
-                    <p id="dos" class="two">Ingrese el texto que desea encriptar/desencriptar</p>
+                    <p id="uno" class="one">Ningún mensaje fue encontrado. <br><span>Ingrese el texto que desea encriptar/desencriptar</span></p>
                     <button type="button" id="copiar" onclick="copiartexto()">Copiar</button>
                 </div>
             </section>
@@ -84,6 +85,7 @@
             document.getElementById("mensaje").value = sf;
         } else{
             alert("Sólo se permiten letras minúsculas sin puntuación y/o caracteres especiales")
+            
         }
         
         
@@ -98,11 +100,12 @@
     function limpieza(){
         document.getElementById("mensaje").style.backgroundImage = "none";
         document.getElementById("uno").style.display = "none";
-        document.getElementById("dos").style.display = "none";
         document.getElementById("copiar").style.display = "block";
 
     }
 
+
+    
     
 
 </script>
